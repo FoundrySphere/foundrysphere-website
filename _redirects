@@ -1,0 +1,8 @@
+# Route registration and profile correction journeys to the backend that serves their forms.
+# Keep the public marketing website separate from member registration/update pages.
+/register https://foundrysphere-backend.onrender.com/register/ 302
+/register/ https://foundrysphere-backend.onrender.com/register/ 302
+/register-professional/* https://foundrysphere-backend.onrender.com/register-professional/:splat 302
+/profile-update.html https://foundrysphere-backend.onrender.com/profile-update.html 302
+/update/* https://foundrysphere-backend.onrender.com/update/:splat 302
+/c/* https://foundrysphere-backend.onrender.com/c/:splat 302
