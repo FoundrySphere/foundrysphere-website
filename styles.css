@@ -219,3 +219,13 @@ main>section:nth-of-type(5) .card-photo{height:225px}
 .footer-social a:hover,.footer-social a:focus-visible{background:rgba(255,255,255,.12);border-color:#ff7a32;color:#fff;outline-offset:3px}
 .footer-social a svg{width:17px;height:17px;flex:none;fill:currentColor}
 @media(max-width:600px){.footer-social{gap:8px}.footer-social-label{width:100%;margin-bottom:2px}.footer-social a{padding:7px 10px;font-size:.88rem}}
+
+
+/* Social footer refinement: icon-only circular buttons, with accessible labels and hover titles. */
+.footer-social{gap:12px}
+.footer-social a{width:44px;height:44px;padding:0;justify-content:center;border-radius:50%;font-size:0;gap:0;color:#fff;background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.28)}
+.footer-social a svg{width:20px;height:20px}
+.footer-social a[aria-label*="Facebook"] svg{fill:currentColor}
+.footer-social a[aria-label*="YouTube"] svg{width:21px;height:21px}
+.footer-social a:hover,.footer-social a:focus-visible{background:#ff7628;border-color:#ff7628;color:#fff;transform:translateY(-2px)}
+@media(max-width:600px){.footer-social{gap:10px}.footer-social a{width:42px;height:42px;padding:0;font-size:0}}
