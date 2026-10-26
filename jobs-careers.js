@@ -32,14 +32,21 @@ async function openDetail(id){
  }catch(e){$("detail").textContent=e.message}
 }
 function renderApplicationConfirmation(a){
- $("applicationStatus").textContent="Application recorded — "+(a.status||"Submitted");
- $("applicationHeading").textContent="Application Confirmation";
- $("applicationId").textContent=a.applicationId||"Not available";
+ var rawId=String(a.applicationId||a.applicationReference||"").trim();
+ var reference=rawId.startsWith("FS-JA-")?rawId:(rawId?"FS-JA-"+rawId:"Not available");
+ $("applicationHeading").textContent="Application Submitted Successfully!";
+ $("applicationStatus").classList.add("hidden");
+ $("applicationInstruction").textContent="Your job application has been submitted successfully to FoundrySphere.";
+ $("applicationId").textContent=reference;
  $("applicationMemberId").textContent=a.memberId||"Not available";
- $("applicationSubmittedAt").textContent=a.submittedAt?new Date(a.submittedAt).toLocaleString():"Not available";
- $("applicationJobTitleConfirmed").textContent=a.jobTitle||"Job Vacancy";
+ $("applicationReviewStatus").textContent="Pending Review";
  $("applicationDetails").classList.remove("hidden");
- $("applicationInstruction").textContent="Your application is recorded in FoundrySphere. Keep your Application ID for future reference.";
+ $("applicationSuccessMessage").textContent="You will receive a WhatsApp notification when your application status is updated.";
+ $("openApplicationWhatsApp").classList.add("hidden");
+ $("checkApplicationAgain").classList.add("hidden");
+ $("backToResultsFromApplication").classList.add("hidden");
+ $("homepageActions").classList.remove("hidden");
+ $("goToHomepage").onclick=function(){window.location.href="https://www.foundrysphere.com/";};
 }
 function startApplicationPolling(){
  if(applicationPollTimer)clearInterval(applicationPollTimer);
@@ -64,7 +71,7 @@ async function applyForJob(){
   var tokenBytes=new Uint8Array(18);if(window.crypto&&typeof window.crypto.getRandomValues==="function"){window.crypto.getRandomValues(tokenBytes)}else{for(var ti=0;ti<tokenBytes.length;ti++)tokenBytes[ti]=Math.floor(Math.random()*256)}applicationToken="FSREF"+Array.from(tokenBytes).map(function(x){return x.toString(16).padStart(2,"0")}).join("").toUpperCase();
   $("searchPage").classList.add("hidden");$("resultsPage").classList.add("hidden");$("applicationPage").classList.remove("hidden");
   $("applicationJobTitle").textContent=v.title||"Selected vacancy";$("applicationVacancyCode").textContent=v.code;
-  $("applicationHeading").textContent="Page 3 — Submit Application";$("applicationStatus").textContent="Not submitted yet — WhatsApp message required";$("applicationDetails").classList.add("hidden");
+  $("applicationHeading").textContent="Page 3 — Submit Application";$("applicationStatus").classList.remove("hidden");$("applicationStatus").textContent="Not submitted yet — WhatsApp message required";$("applicationDetails").classList.add("hidden");$("homepageActions").classList.add("hidden");$("openApplicationWhatsApp").classList.remove("hidden");$("checkApplicationAgain").classList.remove("hidden");$("backToResultsFromApplication").classList.remove("hidden");
   $("applicationInstruction").textContent="This button opens FoundrySphere WhatsApp with your application message ready. In WhatsApp, press Send. Use the WhatsApp number registered to your FoundrySphere Job Seeker account. This page cannot send the WhatsApp message for you. Keep this page open; your Application ID appears only after the backend records your application.";
   $("openApplicationWhatsApp").href="https://wa.me/919822539394?text="+encodeURIComponent("APPLY "+v.code+" "+applicationToken);
   $("applicationPage").scrollIntoView({behavior:"smooth",block:"start"});
