@@ -33,6 +33,7 @@ async function openDetail(id){
 }
 function renderApplicationConfirmation(a){
  $("applicationStatus").textContent="Application recorded — "+(a.status||"Submitted");
+ $("applicationHeading").textContent="Application Confirmation";
  $("applicationId").textContent=a.applicationId||"Not available";
  $("applicationMemberId").textContent=a.memberId||"Not available";
  $("applicationSubmittedAt").textContent=a.submittedAt?new Date(a.submittedAt).toLocaleString():"Not available";
@@ -50,7 +51,7 @@ function startApplicationPolling(){
   }catch(e){}
   if(Date.now()-started>180000){
    clearInterval(applicationPollTimer);applicationPollTimer=null;
-   $("applicationInstruction").textContent="No application was found yet. Confirm you pressed Send in WhatsApp, then select Check Again.";
+   $("applicationInstruction").textContent="No application has been recorded. Check that you pressed Send in WhatsApp from your registered Job Seeker number. If WhatsApp did not reply, the application was not confirmed; try again later or contact FoundrySphere support.";
   }
  },3000);
 }
@@ -63,8 +64,8 @@ async function applyForJob(){
   var tokenBytes=new Uint8Array(18);if(window.crypto&&typeof window.crypto.getRandomValues==="function"){window.crypto.getRandomValues(tokenBytes)}else{for(var ti=0;ti<tokenBytes.length;ti++)tokenBytes[ti]=Math.floor(Math.random()*256)}applicationToken="FSREF"+Array.from(tokenBytes).map(function(x){return x.toString(16).padStart(2,"0")}).join("").toUpperCase();
   $("searchPage").classList.add("hidden");$("resultsPage").classList.add("hidden");$("applicationPage").classList.remove("hidden");
   $("applicationJobTitle").textContent=v.title||"Selected vacancy";$("applicationVacancyCode").textContent=v.code;
-  $("applicationStatus").textContent="Waiting for WhatsApp submission";$("applicationDetails").classList.add("hidden");
-  $("applicationInstruction").textContent="Open WhatsApp below and press Send on the prefilled APPLY message. Keep this page open; confirmation appears only after FoundrySphere records your application.";
+  $("applicationHeading").textContent="Page 3 — Submit Application";$("applicationStatus").textContent="Not submitted yet — WhatsApp message required";$("applicationDetails").classList.add("hidden");
+  $("applicationInstruction").textContent="This button opens FoundrySphere WhatsApp with your application message ready. In WhatsApp, press Send. Use the WhatsApp number registered to your FoundrySphere Job Seeker account. This page cannot send the WhatsApp message for you. Keep this page open; your Application ID appears only after the backend records your application.";
   $("openApplicationWhatsApp").href="https://wa.me/919822539394?text="+encodeURIComponent("APPLY "+v.code+" "+applicationToken);
   $("applicationPage").scrollIntoView({behavior:"smooth",block:"start"});
   startApplicationPolling();
@@ -73,8 +74,8 @@ async function applyForJob(){
 $("checkApplicationAgain").onclick=async function(){
  if(!applicationToken)return;
  $("applicationInstruction").textContent="Checking for your submitted application…";
- try{var d=await api(API_BASE+"/api/job-vacancies/applications/status?token="+encodeURIComponent(applicationToken));if(d.application){if(applicationPollTimer)clearInterval(applicationPollTimer);applicationPollTimer=null;renderApplicationConfirmation(d.application)}else $("applicationInstruction").textContent="Application not found yet. Open WhatsApp and press Send, then check again."}
- catch(e){$("applicationInstruction").textContent="Could not check right now. Please try again."}
+ try{var d=await api(API_BASE+"/api/job-vacancies/applications/status?token="+encodeURIComponent(applicationToken));if(d.application){if(applicationPollTimer)clearInterval(applicationPollTimer);applicationPollTimer=null;renderApplicationConfirmation(d.application)}else $("applicationInstruction").textContent="Application not found yet. Confirm you pressed Send in WhatsApp from your registered Job Seeker number. If the bot did not reply, your application is not confirmed."}
+ catch(e){$("applicationInstruction").textContent="Could not check the application record right now. Please try again. Do not treat the application as submitted until an Application ID appears."}
 };
 $("backToResultsFromApplication").onclick=function(){if(applicationPollTimer)clearInterval(applicationPollTimer);applicationPollTimer=null;$("applicationPage").classList.add("hidden");showResultsPage()};
 $("searchForm").addEventListener("submit",function(e){e.preventDefault();search(0)});
