@@ -51,7 +51,7 @@ function startApplicationPolling(){
   }catch(e){}
   if(Date.now()-started>180000){
    clearInterval(applicationPollTimer);applicationPollTimer=null;
-   $("applicationInstruction").textContent="No application was found yet. Confirm you pressed Send in WhatsApp, then select Check Again.";
+   $("applicationInstruction").textContent="No application has been recorded. Check that you pressed Send in WhatsApp from your registered Job Seeker number. If WhatsApp did not reply, the application was not confirmed; try again later or contact FoundrySphere support.";
   }
  },3000);
 }
@@ -74,8 +74,8 @@ async function applyForJob(){
 $("checkApplicationAgain").onclick=async function(){
  if(!applicationToken)return;
  $("applicationInstruction").textContent="Checking for your submitted application…";
- try{var d=await api(API_BASE+"/api/job-vacancies/applications/status?token="+encodeURIComponent(applicationToken));if(d.application){if(applicationPollTimer)clearInterval(applicationPollTimer);applicationPollTimer=null;renderApplicationConfirmation(d.application)}else $("applicationInstruction").textContent="Application not found yet. Open WhatsApp and press Send, then check again."}
- catch(e){$("applicationInstruction").textContent="Could not check right now. Please try again."}
+ try{var d=await api(API_BASE+"/api/job-vacancies/applications/status?token="+encodeURIComponent(applicationToken));if(d.application){if(applicationPollTimer)clearInterval(applicationPollTimer);applicationPollTimer=null;renderApplicationConfirmation(d.application)}else $("applicationInstruction").textContent="Application not found yet. Confirm you pressed Send in WhatsApp from your registered Job Seeker number. If the bot did not reply, your application is not confirmed."}
+ catch(e){$("applicationInstruction").textContent="Could not check the application record right now. Please try again. Do not treat the application as submitted until an Application ID appears."}
 };
 $("backToResultsFromApplication").onclick=function(){if(applicationPollTimer)clearInterval(applicationPollTimer);applicationPollTimer=null;$("applicationPage").classList.add("hidden");showResultsPage()};
 $("searchForm").addEventListener("submit",function(e){e.preventDefault();search(0)});
