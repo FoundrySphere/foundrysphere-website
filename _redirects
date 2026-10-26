@@ -6,3 +6,5 @@
 /profile-update.html https://foundrysphere-backend.onrender.com/profile-update.html 302
 /update/* https://foundrysphere-backend.onrender.com/update/:splat 302
 /c/* https://foundrysphere-backend.onrender.com/c/:splat 302
+# Serve the WhatsApp job-search page from the backend that hosts its database API.
+/jobs-careers.html https://foundrysphere-backend.onrender.com/jobs-careers.html 302
