@@ -6,6 +6,37 @@ async function api(url){var r=await fetch(url,{headers:{"Accept":"application/js
 function status(msg){$("status").textContent=msg;$("status").classList.remove("hidden");$("status").scrollIntoView({behavior:"smooth",block:"nearest"})}
 var currentPage=0,currentVacancy=null,applicationPollTimer=null,applicationToken=null;
 async function loadCategories(){try{var d=await api(API_BASE+"/api/job-vacancies/categories");d.categories.forEach(function(c){var o=document.createElement("option");o.value=c.name;o.textContent=c.name;$("jobCategory").appendChild(o)})}catch(e){status(e.message)}}
+function addLocationOptions(select,items,placeholder,selectedValue){select.innerHTML="";var first=document.createElement("option");first.value="";first.textContent=placeholder;select.appendChild(first);(items||[]).forEach(function(item){var o=document.createElement("option");o.value=item.name;o.textContent=item.name;if(item.isoCode)o.dataset.code=item.isoCode;if(selectedValue&&item.name===selectedValue)o.selected=true;select.appendChild(o)});}
+async function loadJobCountries(){
+ var country=$("jobCountry");
+ try{
+  var d=await api(API_BASE+"/api/register/locations/countries");
+  var list=d.countries||[];
+  country.innerHTML="";
+  list.forEach(function(item){var o=document.createElement("option");o.value=item.name;o.textContent=item.name;o.dataset.code=item.isoCode;country.appendChild(o)});
+  var india=Array.from(country.options).find(function(o){return o.value.toLowerCase()==="india"});
+  if(india)country.value=india.value;
+ }catch(e){console.error("Job search country list unavailable",e);if(!Array.from(country.options).some(function(o){return o.value==="India"})){var india=document.createElement("option");india.value="India";india.textContent="India";india.dataset.code="IN";country.appendChild(india)}country.value="India"}
+ await loadJobStates();
+}
+async function loadJobStates(selectedState){
+ var country=$("jobCountry"),chosen=country.options[country.selectedIndex],state=$("jobState"),city=$("jobCity");
+ addLocationOptions(state,[],"All States");addLocationOptions(city,[],"All Cities");
+ if(!chosen)return;
+ try{
+  var d=await api(API_BASE+"/api/register/locations/states?countryCode="+encodeURIComponent(chosen.dataset.code||"IN"));
+  addLocationOptions(state,d.states||[],"All States",selectedState||"");
+ }catch(e){console.error("Job search state list unavailable",e)}
+}
+async function loadJobCities(selectedCity){
+ var country=$("jobCountry"),chosenCountry=country.options[country.selectedIndex],state=$("jobState"),chosenState=state.options[state.selectedIndex],city=$("jobCity");
+ addLocationOptions(city,[],"All Cities");
+ if(!chosenCountry||!chosenState||!state.value)return;
+ try{
+  var d=await api(API_BASE+"/api/register/locations/cities?countryCode="+encodeURIComponent(chosenCountry.dataset.code||"IN")+"&stateCode="+encodeURIComponent(chosenState.dataset.code||""));
+  addLocationOptions(city,d.cities||[],"All Cities",selectedCity||"");
+ }catch(e){console.error("Job search city list unavailable",e)}
+}
 function showResultsPage(){ $("searchPage").classList.add("hidden");$("resultsPage").classList.remove("hidden"); }
 function showSearchPage(){ $("resultsPage").classList.add("hidden");$("searchPage").classList.remove("hidden");$("detailPanel").classList.add("hidden"); }
 function renderResults(d){
@@ -85,13 +116,15 @@ $("checkApplicationAgain").onclick=async function(){
  catch(e){$("applicationInstruction").textContent="Could not check the application record right now. Please try again. Do not treat the application as submitted until an Application ID appears."}
 };
 $("backToResultsFromApplication").onclick=function(){if(applicationPollTimer)clearInterval(applicationPollTimer);applicationPollTimer=null;$("applicationPage").classList.add("hidden");showResultsPage()};
+$("jobCountry").addEventListener("change",async function(){await loadJobStates()});
+$("jobState").addEventListener("change",function(){loadJobCities()});
 $("searchForm").addEventListener("submit",function(e){e.preventDefault();search(0)});
 $("clearSearch").onclick=function(){
- $("jobKeyword").value="";$("jobCategory").value="All Categories";$("jobCountry").value="";$("jobState").value="";$("jobCity").value="";
+ $("jobKeyword").value="";$("jobCategory").value="All Categories";$("jobCountry").value="India";loadJobStates();
  currentPage=0;$("resultsTitle").textContent="Search Results";$("resultCount").textContent="";$("results").innerHTML='<div class="empty">Enter your search criteria, then select Search Jobs.</div>';$("pager").innerHTML="";$("detailPanel").classList.add("hidden");$("status").classList.add("hidden");showSearchPage();
 };
 $("backToSearch").onclick=showSearchPage;
 $("closeDetail").onclick=function(){$("detailPanel").classList.add("hidden")};
 $("applyInfo").onclick=applyForJob;
-loadCategories();
+loadCategories();loadJobCountries();
 })();
