@@ -31,9 +31,9 @@ input:focus,select:focus,button:focus-visible{outline:2px solid #269b76;outline-
 <section id="searchPage" class="panel"><h2>Search Jobs</h2><form id="searchForm"><div class="formgrid">
 <div class="field full"><label for="jobKeyword">Job Title / Keyword</label><input id="jobKeyword" name="q" maxlength="120" placeholder="e.g. Sales Executive, Quality Engineer"></div>
 <div class="field full"><label for="jobCategory">Job Category</label><select id="jobCategory" name="category"><option value="All Categories">All Categories</option></select></div>
-<div class="field"><label for="jobCountry">Country</label><input id="jobCountry" name="country" maxlength="100" placeholder="e.g. India"></div>
-<div class="field"><label for="jobState">State</label><input id="jobState" name="state" maxlength="100" placeholder="e.g. Maharashtra"></div>
-<div class="field full"><label for="jobCity">City / District</label><input id="jobCity" name="city" maxlength="100" placeholder="e.g. Kolhapur"></div>
+<div class="field"><label for="jobCountry">Country</label><select id="jobCountry" name="country"><option value="India" data-code="IN" selected>India</option></select></div>
+<div class="field"><label for="jobState">State</label><select id="jobState" name="state"><option value="">All States</option></select></div>
+<div class="field full"><label for="jobCity">City / District</label><select id="jobCity" name="city"><option value="">All Cities</option></select></div>
 </div><div class="actions"><button class="btn primary" type="submit">Search Jobs</button><button class="btn" id="clearSearch" type="button">Clear</button></div></form></section>
 <section id="resultsPage" class="hidden"><div class="backrow"><button class="btn" id="backToSearch" type="button">← Back to Search</button></div>
 <div class="resultshead"><h2 id="resultsTitle">Search Results</h2><span id="resultCount" class="meta"></span></div><section id="results" class="cards"><div class="empty">Search for vacancies to see results.</div></section><div id="pager" class="pager"></div>
