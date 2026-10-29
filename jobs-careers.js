@@ -57,7 +57,12 @@ async function search(page){
  try{var d=await api(API_BASE+"/api/job-vacancies/search?"+p.toString());currentPage=d.page;renderResults(d)}catch(e){$("results").innerHTML='<div class="empty">'+esc(e.message)+'</div>'}
 }
 async function openDetail(id){
- currentVacancy=id;$("detailPanel").classList.remove("hidden");$("detail").textContent="Loading vacancy details…";$("detailPanel").scrollIntoView({behavior:"smooth",block:"start"});
+ currentVacancy=id;
+ var viewButton=Array.from($("results").querySelectorAll("[data-view]")).find(function(b){return b.dataset.view===String(id)});
+ var resultCard=viewButton&&viewButton.closest(".result");
+ if(resultCard)resultCard.insertAdjacentElement("afterend",$("detailPanel"));
+ $("detailPanel").classList.remove("hidden");$("detail").textContent="Loading vacancy details…";
+ $("detailPanel").scrollIntoView({behavior:"smooth",block:"start"});
  try{var d=await api(API_BASE+"/api/job-vacancies/vacancies/"+encodeURIComponent(id)),v=d.vacancy;
  $("detail").innerHTML='<p><b>Vacancy ID:</b> '+esc(v.code||"Not available")+'</p><p><b>Job Title:</b> '+esc(v.title)+'</p><p><b>Company:</b> '+esc(v.company||"Company details available on request")+'</p><p><b>Category:</b> '+esc(v.category)+'</p><p><b>Location:</b> '+esc(v.location||"Not specified")+'</p><p><b>Employment Type:</b> '+esc(v.employmentType||"Not specified")+'</p><p><b>Openings:</b> '+Number(v.openings||1)+'</p><p><b>Qualification / Eligibility:</b> '+esc(v.qualification||"Please review the job description")+'</p><p><b>Experience:</b> '+esc(v.experience||"Not specified")+'</p><p><b>Skills:</b> '+esc(v.skills||"Not specified")+'</p>'+(v.salary?'<p><b>Salary / CTC:</b> '+esc(v.salary)+'</p>':'')+(v.description?'<p><b>Job Description:</b> '+esc(v.description)+'</p>':'')+(v.responsibilities?'<p><b>Responsibilities:</b> '+esc(v.responsibilities)+'</p>':'')+(v.benefits?'<p><b>Benefits:</b> '+esc(v.benefits)+'</p>':'')+(v.accommodation?'<p><b>Accommodation / Facilities:</b> '+esc(v.accommodation)+'</p>':'')+(v.closingDate?'<p><b>Apply before:</b> '+esc(String(v.closingDate).slice(0,10))+'</p>':'')+'<p><b>Employer contact:</b> Hidden on the public search page</p>';
  }catch(e){$("detail").textContent=e.message}
