@@ -299,3 +299,15 @@ main>section:nth-of-type(5) .card-photo{height:225px}
 .callout{border:1px solid #dbe6f1;background:linear-gradient(145deg,#f3f8fd,#fff);box-shadow:0 16px 36px rgba(8,30,55,.07)}
 @media(max-width:900px){.digital-hero-v2 .digital-hero-grid{grid-template-columns:1fr}.digital-hero-art{min-height:330px}}
 @media(max-width:600px){.digital-hero-v2{padding:48px 0}.digital-hero-copy h1{font-size:38px}.digital-hero-art{min-height:270px;border-radius:20px}.art-float{transform:scale(.82);transform-origin:left top}.art-float-two{transform-origin:right bottom}.art-badge{right:12px;top:12px}.service-visual{height:155px}.service-copy{padding:18px}}
+
+/* Final approved FoundrySphere Digital Solutions logo and photographic service visuals */
+.brand-logo{width:clamp(250px,29vw,390px);height:auto;max-height:94px;object-fit:contain}
+.brand-logo-footer{width:min(100%,360px);max-height:none}
+.digital-hero-art{isolation:isolate}
+.digital-hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+.hero-photo-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(7,25,46,.16),rgba(7,25,46,.04) 55%,rgba(7,25,46,.18))}
+.digital-hero-art .art-float,.digital-hero-art .art-badge{z-index:2}
+.service-visual{height:205px;background:#edf3f9}
+.service-visual img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .35s ease}
+.digital-service-card:hover .service-visual img{transform:scale(1.045)}
+@media(max-width:600px){.brand-logo{width:min(68vw,285px);max-height:76px}.service-visual{height:175px}}
