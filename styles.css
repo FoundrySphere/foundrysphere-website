@@ -241,6 +241,7 @@ main>section:nth-of-type(5) .card-photo{height:225px}
 .footer-social a:hover,.footer-social a:focus-visible{background:transparent;filter:brightness(1.08);transform:translateY(-2px);outline:2px solid #ff7628;outline-offset:3px}
 @media(max-width:600px){.footer-social{gap:12px}.footer-social-label{width:100%;margin-bottom:4px}.footer-social a,.footer-social a svg{width:36px;height:36px}}
 
+
 /* FoundrySphere Digital Solutions */
 .digital-promo{background:linear-gradient(120deg,#f4f7fc,#fff7f0)}
 .digital-promo-inner{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:30px;border:1px solid #e5eaf1;border-radius:22px;background:#fff;box-shadow:var(--shadow)}
