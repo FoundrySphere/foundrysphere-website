@@ -357,3 +357,46 @@ main>section:nth-of-type(5) .card-photo{height:225px}
     object-position:center;
   }
 }
+
+
+/* Final correction: use ONLY the central FoundrySphere banner artwork edge-to-edge.
+   Remove both side-photo panels and preserve the source image's natural aspect ratio
+   so it fills the viewport width without stretching, cropping, or reducing sharpness. */
+.hero-banner{
+  position:relative;
+  left:50%;
+  transform:translateX(-50%);
+  width:100vw;
+  max-width:100vw;
+  height:auto;
+  min-height:0;
+  display:block;
+  overflow:hidden;
+  border:0;
+  border-radius:0;
+  background:#07182c;
+  box-shadow:none;
+}
+.hero-banner::before,
+.hero-banner::after{
+  content:none!important;
+  display:none!important;
+}
+.hero-banner > img{
+  position:relative;
+  z-index:1;
+  display:block;
+  width:100%;
+  max-width:100%;
+  height:auto;
+  max-height:none;
+  aspect-ratio:auto;
+  object-fit:contain;
+  object-position:center;
+  border-radius:0;
+  filter:none;
+}
+@media(max-width:760px){
+  .hero-banner{height:auto;min-height:0}
+  .hero-banner > img{width:100%;height:auto;max-width:100%;max-height:none;object-fit:contain}
+}
