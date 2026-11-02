@@ -575,3 +575,36 @@ main>section:nth-of-type(5) .card-photo{height:225px}
 @media(max-width:420px){
   .hero-banner::before,.hero-banner::after{opacity:.2}
 }
+
+/* Render ornamental side artwork as a real SVG asset for reliable browser display. */
+.hero-banner{
+  isolation:isolate;
+  background:
+    radial-gradient(ellipse at center, #123452 0%, #07182c 76%);
+}
+.hero-banner::before,
+.hero-banner::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  z-index:0!important;
+  top:0!important;
+  bottom:0!important;
+  width:17%!important;
+  opacity:1!important;
+  pointer-events:none!important;
+  background-image:url("/assets/mehendi-banner-side.svg")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  filter:drop-shadow(0 0 8px rgba(217,154,88,.24))!important;
+}
+.hero-banner::before{left:0!important;right:auto!important;transform:none!important}
+.hero-banner::after{right:0!important;left:auto!important;transform:scaleX(-1)!important}
+.hero-banner > img{position:relative!important;z-index:1!important}
+@media(max-width:760px){
+  .hero-banner::before,.hero-banner::after{width:13%!important;opacity:.72!important}
+}
+@media(max-width:420px){
+  .hero-banner::before,.hero-banner::after{width:11%!important;opacity:.58!important}
+}
