@@ -259,3 +259,8 @@ main>section:nth-of-type(5) .card-photo{height:225px}
 @media(max-width:800px){.digital-promo-inner{align-items:flex-start;flex-direction:column}.digital-hero-grid{grid-template-columns:1fr}.digital-hero-card{min-height:250px}.digital-hero{padding:52px 0}}
 
 .digital-logo-card img{display:block;width:min(100%,520px);height:auto;object-fit:contain;background:#fff;border-radius:12px;padding:16px}.digital-logo-caption{font-size:clamp(24px,3vw,36px);letter-spacing:.08em;color:#ff9a3d;margin-top:12px;text-align:center}.digital-logo-card p{text-align:center;margin:8px 0 0;color:#e7eef9}
+
+
+/* Homepage Digital Solutions navigation link: visible but consistent with the existing header. */
+.navlinks a.digital-nav-link{color:var(--orange);font-weight:800}
+.navlinks a.digital-nav-link:hover,.navlinks a.digital-nav-link:focus-visible{color:#c94d0b;text-decoration:underline;text-underline-offset:5px}
