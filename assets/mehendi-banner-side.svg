@@ -1,22 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="260" height="330" viewBox="0 0 260 330" fill="none">
-<g stroke="#D99A58" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M-15 165 C28 165 38 130 78 130 S128 165 166 165 S216 130 275 130 M-15 165 C28 165 38 200 78 200 S128 165 166 165 S216 200 275 200" opacity=".85"/>
-  <circle cx="78" cy="165" r="58"/><circle cx="78" cy="165" r="47" stroke-dasharray="2 6"/><circle cx="78" cy="165" r="34"/><circle cx="78" cy="165" r="13"/>
-  <g>
-    <path d="M78 108 C96 126 96 143 78 157 C60 143 60 126 78 108Z"/>
-    <path d="M78 222 C96 204 96 187 78 173 C60 187 60 204 78 222Z"/>
-    <path d="M21 165 C39 147 56 147 70 165 C56 183 39 183 21 165Z"/>
-    <path d="M135 165 C117 147 100 147 86 165 C100 183 117 183 135 165Z"/>
-    <path d="M38 125 Q57 128 61 147 Q42 144 38 125Z M118 125 Q99 128 95 147 Q114 144 118 125Z"/>
-    <path d="M38 205 Q57 202 61 183 Q42 186 38 205Z M118 205 Q99 202 95 183 Q114 186 118 205Z"/>
-  </g>
-  <path d="M178 58 C145 80 151 112 183 127 C215 112 221 80 188 58 C186 76 183 92 183 127" />
-  <path d="M183 127 C165 107 165 89 178 72 M183 127 C201 107 201 89 188 72"/>
-  <path d="M178 272 C145 250 151 218 183 203 C215 218 221 250 188 272 C186 254 183 238 183 203"/>
-  <path d="M183 203 C165 223 165 241 178 258 M183 203 C201 223 201 241 188 258"/>
-  <path d="M24 45 C45 51 56 66 58 88 C36 85 21 72 15 52Z M24 285 C45 279 56 264 58 242 C36 245 21 258 15 278Z"/>
-  <path d="M222 45 C201 51 190 66 188 88 C210 85 225 72 231 52Z M222 285 C201 279 190 264 188 242 C210 245 225 258 231 278Z"/>
-  <path d="M78 20 C88 31 88 40 78 49 C68 40 68 31 78 20Z M78 310 C88 299 88 290 78 281 C68 290 68 299 78 310Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="330" viewBox="0 0 420 330" fill="none">
+<defs>
+ <linearGradient id="gold" x1="0" y1="0" x2="420" y2="330" gradientUnits="userSpaceOnUse"><stop stop-color="#F6D58A"/><stop offset=".48" stop-color="#C98B43"/><stop offset="1" stop-color="#8D542B"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#D99A58" stop-opacity=".20"/><stop offset="1" stop-color="#D99A58" stop-opacity="0"/></radialGradient>
+ <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#E5B66C" opacity=".55"/></pattern>
+</defs>
+<circle cx="108" cy="165" r="148" fill="url(#glow)"/>
+<g stroke="url(#gold)" stroke-linecap="round" stroke-linejoin="round">
+ <!-- Outer ornamental frame and fine concentric rings -->
+ <path d="M-20 20C40 20 55 3 108 3s68 17 128 17M-20 310c60 0 75 17 128 17s68-17 128-17" stroke-width="1.1" opacity=".55"/>
+ <circle cx="108" cy="165" r="112" stroke-width="1.1" opacity=".72"/>
+ <circle cx="108" cy="165" r="105" stroke-width=".65" stroke-dasharray="2 5"/>
+ <circle cx="108" cy="165" r="91" stroke-width="1.1"/>
+ <circle cx="108" cy="165" r="82" stroke-width=".7" stroke-dasharray="1 4"/>
+ <!-- Fine radial geometry -->
+ <g stroke-width=".8" opacity=".8">
+  <path d="M108 53v224M-4 165h224M29 86l158 158M29 244 187 86"/>
+  <path d="M108 43v15M108 272v15M-4 165h15M205 165h15M29 86l11 11M176 233l11 11M29 244l11-11M176 97l11-11"/>
+ </g>
+ <!-- Petal mandala -->
+ <g stroke-width="1.35">
+  <ellipse cx="108" cy="132" rx="13" ry="31"/>
+  <ellipse cx="108" cy="198" rx="13" ry="31"/>
+  <ellipse cx="75" cy="165" rx="31" ry="13"/>
+  <ellipse cx="141" cy="165" rx="31" ry="13"/>
+  <ellipse cx="85" cy="142" rx="12" ry="29" transform="rotate(-45 85 142)"/>
+  <ellipse cx="131" cy="142" rx="12" ry="29" transform="rotate(45 131 142)"/>
+  <ellipse cx="85" cy="188" rx="12" ry="29" transform="rotate(45 85 188)"/>
+  <ellipse cx="131" cy="188" rx="12" ry="29" transform="rotate(-45 131 188)"/>
+  <circle cx="108" cy="165" r="20"/>
+  <circle cx="108" cy="165" r="8"/>
+ </g>
+ <!-- Gear-inspired toothed halo -->
+ <path d="M108 63l7 7 10-2 4 9 10 3 1 10 8 7-3 10 5 9-7 8 1 10-9 5-3 10-10 1-7 8-10-4-10 4-7-8-10-1-3-10-9-5 1-10-7-8 5-9-3-10 8-7 1-10 10-3 4-9 10 2 7-7Z" stroke-width=".9" opacity=".9"/>
+ <!-- Inner dotted beadwork -->
+ <circle cx="108" cy="165" r="69" stroke-width="1" stroke-dasharray="1 5"/>
+ <circle cx="108" cy="165" r="57" stroke-width=".7" stroke-dasharray="2 4"/>
+ <!-- Paisley leaves at upper/lower corners -->
+ <path d="M251 46c-35 7-54 30-47 57 5 20 25 30 45 24 20-7 27-28 15-44-9-12-23-13-33-5-8 7-8 18-1 24 5 4 12 4 16-1" stroke-width="1.6"/>
+ <path d="M249 47c-7 22-4 43 8 61M235 60c-4 17 0 32 12 43M249 284c-35-7-54-30-47-57 5-20 25-30 45-24 20 7 27 28 15 44-9 12-23 13-33 5-8-7-8-18-1-24 5-4 12-4 16 1" stroke-width="1.6"/>
+ <path d="M249 283c-7-22-4-43 8-61M235 270c-4-17 0-32 12-43" stroke-width="1"/>
+ <!-- Delicate vine scrolls linking the mandala to edge -->
+ <path d="M214 165c30 0 28-29 55-29 16 0 21 13 35 13 17 0 23-16 39-16 14 0 19 10 34 10" stroke-width="1.25"/>
+ <path d="M214 165c30 0 28 29 55 29 16 0 21-13 35-13 17 0 23 16 39 16 14 0 19-10 34-10" stroke-width="1.25"/>
+ <path d="M257 136c-5-14 1-25 13-30 2 13-2 23-13 30Zm45 13c-2-14 6-23 19-25-1 13-7 22-19 25Zm-45 45c-5 14 1 25 13 30 2-13-2-23-13-30Zm45-13c-2 14 6 23 19 25-1-13-7-22-19-25Z" stroke-width="1.1"/>
+ <!-- Industrial micro-gear medallions -->
+ <g stroke-width="1.1">
+  <circle cx="330" cy="72" r="22"/><circle cx="330" cy="72" r="15"/><circle cx="330" cy="72" r="5"/>
+  <path d="M330 45v6m0 42v6m-27-27h6m42 0h6m-46-19 5 5m30 30 5 5m0-40-5 5m-30 30-5 5"/>
+  <circle cx="330" cy="258" r="22"/><circle cx="330" cy="258" r="15"/><circle cx="330" cy="258" r="5"/>
+  <path d="M330 231v6m0 42v6m-27-27h6m42 0h6m-46-19 5 5m30 30 5 5m0-40-5 5m-30 30-5 5"/>
+ </g>
+ <!-- Fine circuit-trace detailing -->
+ <g stroke-width=".9" opacity=".8">
+  <path d="M276 104h22v-12h17m-39 134h22v12h17M350 105h24v-14h26M350 225h24v14h26"/>
+  <path d="M285 98l5-5 5 5m-10 134 5 5 5-5m88-137 5-5 5 5m-10 134 5 5 5-5"/>
+  <circle cx="315" cy="92" r="2" fill="#D9A45C"/><circle cx="315" cy="238" r="2" fill="#D9A45C"/>
+  <circle cx="400" cy="91" r="2" fill="#D9A45C"/><circle cx="400" cy="239" r="2" fill="#D9A45C"/>
+ </g>
+ <!-- Spark / molten metal diamond details -->
+ <g stroke-width="1.1">
+  <path d="M34 32l5 13 13 5-13 5-5 13-5-13-13-5 13-5 5-13Zm0 212 4 10 10 4-10 4-4 10-4-10-10-4 10-4 4-10Z"/>
+  <path d="M386 24l4 11 11 4-11 4-4 11-4-11-11-4 11-4 4-11Zm0 248 4 11 11 4-11 4-4 11-4-11-11-4 11-4 4-11Z"/>
+ </g>
 </g>
-<g fill="#E7B16F"><circle cx="78" cy="165" r="4"/><circle cx="183" cy="58" r="3"/><circle cx="183" cy="272" r="3"/><circle cx="24" cy="45" r="2.5"/><circle cx="24" cy="285" r="2.5"/></g>
+<g fill="#E8B96F">
+ <circle cx="108" cy="53" r="2"/><circle cx="108" cy="277" r="2"/><circle cx="-4" cy="165" r="2"/><circle cx="220" cy="165" r="2"/>
+ <circle cx="251" cy="46" r="2"/><circle cx="251" cy="284" r="2"/><circle cx="330" cy="72" r="2"/><circle cx="330" cy="258" r="2"/>
+</g>
 </svg>
