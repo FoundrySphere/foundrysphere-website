@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+<title id="title">Foundry industry exhibition</title><desc id="desc">Industrial exhibition hall with foundry equipment stands and visitors.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#102c4c"/><stop offset="1" stop-color="#234e70"/></linearGradient><linearGradient id="orange" x2="0" y2="1"><stop stop-color="#ff9b38"/><stop offset="1" stop-color="#ef5b16"/></linearGradient></defs>
+<rect width="1200" height="360" fill="url(#bg)"/><path d="M0 0h1200v42H0z" fill="#0a1c32"/><path d="M0 42L600 0l600 42v18H0z" fill="#d9e7f4" opacity=".13"/>
+<g stroke="#d7e5ef" stroke-width="5" opacity=".5"><path d="M70 60v190M1130 60v190M250 40v205M950 40v205"/><path d="M70 70h1060M70 130h1060"/></g>
+<rect x="365" y="75" width="470" height="165" rx="10" fill="#f2f6fa"/><rect x="390" y="95" width="420" height="42" rx="5" fill="#102c4c"/><path d="M410 145h380v10H410z" fill="url(#orange)"/>
+<g fill="#173b5b"><rect x="405" y="170" width="95" height="65" rx="5"/><rect x="525" y="170" width="95" height="65" rx="5"/><rect x="645" y="170" width="145" height="65" rx="5"/></g>
+<g fill="#f6a13b"><circle cx="452" cy="185" r="13"/><circle cx="572" cy="185" r="13"/><circle cx="690" cy="185" r="13"/></g>
+<g fill="#e8f0f7" opacity=".9"><path d="M0 270h1200v90H0z"/></g><g fill="#142e48"><circle cx="160" cy="245" r="17"/><path d="M135 265h50l18 82h-86z"/><circle cx="260" cy="250" r="16"/><path d="M236 269h48l16 78h-80z"/><circle cx="930" cy="245" r="17"/><path d="M905 265h50l18 82h-86z"/><circle cx="1030" cy="250" r="16"/><path d="M1006 269h48l16 78h-80z"/></g>
+<g fill="url(#orange)"><rect x="80" y="280" width="45" height="55" rx="4"/><rect x="1080" y="280" width="45" height="55" rx="4"/></g><g fill="#fff"><circle cx="150" cy="280" r="5"/><circle cx="250" cy="282" r="5"/><circle cx="920" cy="280" r="5"/><circle cx="1020" cy="282" r="5"/></g></svg>
