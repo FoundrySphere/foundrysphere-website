@@ -240,3 +240,19 @@ main>section:nth-of-type(5) .card-photo{height:225px}
 .footer-social a[aria-label*="YouTube"] svg{width:48px;height:36px}
 .footer-social a:hover,.footer-social a:focus-visible{background:transparent;filter:brightness(1.08);transform:translateY(-2px);outline:2px solid #ff7628;outline-offset:3px}
 @media(max-width:600px){.footer-social{gap:12px}.footer-social-label{width:100%;margin-bottom:4px}.footer-social a,.footer-social a svg{width:36px;height:36px}}
+
+/* FoundrySphere Digital Solutions */
+.digital-promo{background:linear-gradient(120deg,#f4f7fc,#fff7f0)}
+.digital-promo-inner{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:30px;border:1px solid #e5eaf1;border-radius:22px;background:#fff;box-shadow:var(--shadow)}
+.digital-promo-inner>div{max-width:760px}.digital-promo h2{margin-top:16px}.digital-promo p{color:var(--muted);margin-bottom:0}
+.digital-hero{padding:76px 0;background:radial-gradient(circle at 90% 15%,#fff0e4,transparent 30%),linear-gradient(135deg,#f2f6fd,#fff)}
+.digital-hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:45px;align-items:center}
+.digital-hero h1 span{color:var(--orange)}.digital-hero p{font-size:18px;color:var(--muted);max-width:720px}
+.digital-hero-card{min-height:310px;border-radius:26px;background:linear-gradient(145deg,var(--navy),#1b3b68);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:var(--shadow);padding:35px}
+.digital-hero-card strong{font-size:25px;z-index:1}.digital-hero-card b{font-size:30px;color:#ff9a3d;z-index:1}.digital-hero-card small{letter-spacing:2px;color:#d7e4f8;margin-top:10px;z-index:1}
+.digital-mark{width:90px;height:90px;border:3px solid #ff9a3d;border-radius:24px;display:grid;place-items:center;font-size:32px;font-weight:900;margin-bottom:16px;z-index:1}.digital-mark span{color:#ff9a3d}
+.digital-orbit{position:absolute;width:330px;height:330px;border:1px solid #ffffff22;border-radius:50%;right:-110px;top:-110px;box-shadow:0 0 0 30px #ffffff08,0 0 0 60px #ffffff06}
+.industry-tags{display:flex;flex-wrap:wrap;gap:12px}.industry-tags span{padding:12px 17px;border:1px solid var(--line);border-radius:999px;background:#fff;color:#354761;font-weight:700}
+.digital-steps{list-style:none;padding:0;margin:25px 0;display:grid;gap:20px;counter-reset:steps}.digital-steps li{display:grid;gap:4px;padding-left:52px;position:relative;counter-increment:steps}.digital-steps li:before{content:counter(steps);position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;font-weight:800}.digital-steps span{color:var(--muted)}
+.digital-note{border:1px solid #dce5f0;background:#fff;border-radius:16px;padding:20px 24px;color:#485970}
+@media(max-width:800px){.digital-promo-inner{align-items:flex-start;flex-direction:column}.digital-hero-grid{grid-template-columns:1fr}.digital-hero-card{min-height:250px}.digital-hero{padding:52px 0}}
