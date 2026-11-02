@@ -720,3 +720,37 @@ main>section:nth-of-type(5) .card-photo{height:225px}
     object-fit:contain!important;
   }
 }
+
+
+/* Keep the three hero images vertically centered on the same axis. */
+.hero-banner{
+  align-items:center!important;
+  border:0!important;
+}
+.hero-banner .hero-side,
+.hero-banner .hero-center{
+  align-self:center!important;
+  height:100%!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.hero-banner .hero-side img{
+  width:100%!important;
+  height:auto!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  align-self:center!important;
+}
+.hero-banner .hero-center img{
+  width:100%!important;
+  height:auto!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  align-self:center!important;
+}
+@media(max-width:760px){
+  .hero-banner{align-items:center!important}
+  .hero-banner .hero-center{height:auto!important}
+  .hero-banner .hero-center img{height:auto!important}
+}
