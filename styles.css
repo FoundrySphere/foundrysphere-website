@@ -636,3 +636,87 @@ main>section:nth-of-type(5) .card-photo{height:225px}
 @media(max-width:420px){
   .hero-banner::before,.hero-banner::after{width:11%!important;opacity:.65!important}
 }
+
+
+/* Definitive homepage hero layout: three independent image panels.
+   Remove legacy pseudo-element artwork so it cannot cover the center image. */
+.hero-banner{
+  position:relative!important;
+  left:auto!important;
+  transform:none!important;
+  width:100%!important;
+  max-width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,2.15fr) minmax(0,1fr)!important;
+  align-items:stretch!important;
+  justify-content:stretch!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  background:#07182c!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+.hero-banner::before,
+.hero-banner::after{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+}
+.hero-banner .hero-side{
+  display:flex!important;
+  min-width:0!important;
+  min-height:0!important;
+  align-items:stretch!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+  background:#07182c!important;
+}
+.hero-banner .hero-side img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:100%!important;
+  max-height:none!important;
+  aspect-ratio:auto!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+.hero-banner .hero-center{
+  display:flex!important;
+  min-width:0!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+  background:#07182c!important;
+}
+.hero-banner .hero-center img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-width:100%!important;
+  max-height:none!important;
+  aspect-ratio:auto!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  filter:none!important;
+}
+@media(max-width:760px){
+  .hero-banner{
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+  }
+  .hero-banner .hero-side{display:none!important}
+  .hero-banner .hero-center{display:block!important;width:100%!important}
+  .hero-banner .hero-center img{
+    width:100%!important;
+    height:auto!important;
+    max-width:100%!important;
+    max-height:none!important;
+    object-fit:contain!important;
+  }
+}
