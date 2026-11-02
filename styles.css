@@ -756,19 +756,9 @@ main>section:nth-of-type(5) .card-photo{height:225px}
 }
 
 
-/* Mask the thin white stripe visible within the uploaded side artwork.
-   Keep the artwork, dimensions, center banner and panel alignment unchanged. */
-.hero-banner .hero-side{
-  position:relative!important;
-}
-.hero-banner .hero-side::after{
-  content:""!important;
-  position:absolute!important;
-  z-index:5!important;
-  top:51px!important;
-  left:0!important;
-  right:0!important;
-  height:3px!important;
-  background:#06152b!important;
-  pointer-events:none!important;
+/* Trim only the 2px white top edge from each side artwork image.
+   This leaves the panel background, image sizing, center banner and alignment intact. */
+.hero-banner .hero-side::after{content:none!important;display:none!important}
+.hero-banner .hero-side img{
+  clip-path:inset(2px 0 0 0)!important;
 }
