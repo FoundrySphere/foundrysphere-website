@@ -257,3 +257,5 @@ main>section:nth-of-type(5) .card-photo{height:225px}
 .digital-steps{list-style:none;padding:0;margin:25px 0;display:grid;gap:20px;counter-reset:steps}.digital-steps li{display:grid;gap:4px;padding-left:52px;position:relative;counter-increment:steps}.digital-steps li:before{content:counter(steps);position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;font-weight:800}.digital-steps span{color:var(--muted)}
 .digital-note{border:1px solid #dce5f0;background:#fff;border-radius:16px;padding:20px 24px;color:#485970}
 @media(max-width:800px){.digital-promo-inner{align-items:flex-start;flex-direction:column}.digital-hero-grid{grid-template-columns:1fr}.digital-hero-card{min-height:250px}.digital-hero{padding:52px 0}}
+
+.digital-logo-card img{display:block;width:min(100%,520px);height:auto;object-fit:contain;background:#fff;border-radius:12px;padding:16px}.digital-logo-caption{font-size:clamp(24px,3vw,36px);letter-spacing:.08em;color:#ff9a3d;margin-top:12px;text-align:center}.digital-logo-card p{text-align:center;margin:8px 0 0;color:#e7eef9}
