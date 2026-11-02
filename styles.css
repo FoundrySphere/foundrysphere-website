@@ -760,5 +760,5 @@ main>section:nth-of-type(5) .card-photo{height:225px}
    This leaves the panel background, image sizing, center banner and alignment intact. */
 .hero-banner .hero-side::after{content:none!important;display:none!important}
 .hero-banner .hero-side img{
-  clip-path:inset(2px 0 0 0)!important;
+  clip-path:inset(6px 0 0 0)!important;
 }
