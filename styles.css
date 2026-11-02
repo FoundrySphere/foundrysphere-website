@@ -530,3 +530,48 @@ main>section:nth-of-type(5) .card-photo{height:225px}
 @media(max-width:420px){
   .hero-banner{height:185px;min-height:185px}
 }
+
+
+/* FoundrySphere homepage: subtle Indian mehendi-inspired side ornaments.
+   The central artwork remains complete, centered and untouched. */
+.hero-banner{
+  isolation:isolate;
+  background:
+    radial-gradient(ellipse at 50% 50%,rgba(24,63,91,.82),rgba(5,20,39,.98) 72%),
+    #07182c;
+}
+.hero-banner::before,
+.hero-banner::after{
+  content:"";
+  display:block!important;
+  position:absolute;
+  z-index:0;
+  top:0;
+  bottom:0;
+  width:17%;
+  pointer-events:none;
+  opacity:.9;
+  background-color:transparent;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+  filter:drop-shadow(0 0 7px rgba(227,145,65,.18));
+}
+.hero-banner::before{
+  left:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 330' fill='none'%3E%3Cg stroke='%23c98b4d' stroke-width='1.35' opacity='.9'%3E%3Cpath d='M-12 165C30 165 42 130 70 130s40 35 70 35 42-35 70-35 42 35 55 35M-12 165C30 165 42 200 70 200s40-35 70-35 42 35 70 35 42-35 55-35'/%3E%3Ccircle cx='76' cy='165' r='49'/%3E%3Ccircle cx='76' cy='165' r='39' stroke-dasharray='3 5'/%3E%3Ccircle cx='76' cy='165' r='25'/%3E%3Cpath d='M76 126c9 10 9 19 0 28-9-9-9-18 0-28Zm0 50c9 9 9 18 0 28-9-10-9-19 0-28Zm-39-11c10-9 19-9 28 0-9 9-18 9-28 0Zm50 0c9-9 18-9 28 0-10 9-19 9-28 0ZM76 140c-7 7-7 14 0 21 7-7 7-14 0-21Zm0 28c-7 7-7 14 0 21 7-7 7-14 0-21Z'/%3E%3Cpath d='M145 60c-25 16-27 43-2 59 25-16 27-43 2-59Zm0 0c0 21-10 37-30 47m30-47c0 21 10 37 30 47M145 270c-25-16-27-43-2-59 25 16 27 43 2 59Zm0 0c0-21-10-37-30-47m30 47c0-21 10-37 30-47'/%3E%3Cpath d='M18 36c17 7 27 20 30 39-19-3-32-13-39-30 3-4 6-7 9-9Zm0 258c17-7 27-20 30-39-19 3-32 13-39 30 3 4 6 7 9 9Zm185-258c-17 7-27 20-30 39 19-3 32-13 39-30-3-4-6-7-9-9Zm0 258c-17-7-27-20-30-39 19 3 32 13 39 30-3 4-6 7-9 9Z'/%3E%3C/g%3E%3Cg fill='%23e5a45c'%3E%3Ccircle cx='76' cy='165' r='3'/%3E%3Ccircle cx='145' cy='60' r='2.5'/%3E%3Ccircle cx='145' cy='270' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-banner::after{
+  right:0;
+  transform:scaleX(-1);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 330' fill='none'%3E%3Cg stroke='%23c98b4d' stroke-width='1.35' opacity='.9'%3E%3Cpath d='M-12 165C30 165 42 130 70 130s40 35 70 35 42-35 70-35 42 35 55 35M-12 165C30 165 42 200 70 200s40-35 70-35 42 35 70 35 42-35 55-35'/%3E%3Ccircle cx='76' cy='165' r='49'/%3E%3Ccircle cx='76' cy='165' r='39' stroke-dasharray='3 5'/%3E%3Ccircle cx='76' cy='165' r='25'/%3E%3Cpath d='M76 126c9 10 9 19 0 28-9-9-9-18 0-28Zm0 50c9 9 9 18 0 28-9-10-9-19 0-28Zm-39-11c10-9 19-9 28 0-9 9-18 9-28 0Zm50 0c9-9 18-9 28 0-10 9-19 9-28 0Z'/%3E%3Cpath d='M145 60c-25 16-27 43-2 59 25-16 27-43 2-59Zm0 0c0 21-10 37-30 47m30-47c0 21 10 37 30 47M145 270c-25-16-27-43-2-59 25 16 27 43 2 59Zm0 0c0-21-10-37-30-47m30 47c0-21 10-37 30-47Z'/%3E%3C/g%3E%3Cg fill='%23e5a45c'%3E%3Ccircle cx='76' cy='165' r='3'/%3E%3Ccircle cx='145' cy='60' r='2.5'/%3E%3Ccircle cx='145' cy='270' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-banner > img{
+  z-index:1;
+}
+@media(max-width:760px){
+  .hero-banner::before,.hero-banner::after{width:12%;opacity:.38}
+}
+@media(max-width:420px){
+  .hero-banner::before,.hero-banner::after{opacity:.2}
+}
