@@ -608,3 +608,28 @@ main>section:nth-of-type(5) .card-photo{height:225px}
 @media(max-width:420px){
   .hero-banner::before,.hero-banner::after{width:11%!important;opacity:.58!important}
 }
+
+
+/* Approved banner correction: rich mehendi + foundry ladle motifs on BOTH side panels.
+   Keep the center banner image, banner height, header and homepage layout unchanged. */
+.hero-banner::before,
+.hero-banner::after{
+  width:28%!important;
+  opacity:1!important;
+  background-size:100% 100%!important;
+  background-position:center!important;
+  filter:drop-shadow(0 0 10px rgba(238,157,61,.2))!important;
+}
+.hero-banner::before{
+  background-image:url("/assets/mehendi-banner-side.svg")!important;
+}
+.hero-banner::after{
+  background-image:url("/assets/mehendi-banner-side.svg")!important;
+  transform:scaleX(-1)!important;
+}
+@media(max-width:760px){
+  .hero-banner::before,.hero-banner::after{width:14%!important;opacity:.8!important}
+}
+@media(max-width:420px){
+  .hero-banner::before,.hero-banner::after{width:11%!important;opacity:.65!important}
+}
